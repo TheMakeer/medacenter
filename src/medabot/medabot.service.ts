@@ -4,15 +4,20 @@ import { isValidObjectId, Model } from 'mongoose';
 import { CreateMedabotDto } from './dto/create-medabot.dto';
 import { UpdateMedabotDto } from './dto/update-medabot.dto';
 import { Medabot } from './entities/medabot.entity';
+import { PaginationDto } from '../common/dto/pagination.dto';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class MedabotService {
 
   constructor(
     @InjectModel(Medabot.name)
-    private readonly medabotModel: Model<Medabot>) { }
+    private readonly medabotModel: Model<Medabot>,
+    private readonly configService: ConfigService,
+    ) {}
 
   async create(createMedabotDto: CreateMedabotDto) {
+    console.log(createMedabotDto);
     createMedabotDto.name = createMedabotDto.name.toLocaleLowerCase();
 
     try {
@@ -27,8 +32,17 @@ export class MedabotService {
 
   }
 
-  findAll() {
-    return `This action returns all medabot`;
+  async findAll(paginationDto: PaginationDto) {
+    const { limit , offset = 0 } =paginationDto;
+    return this.medabotModel.find()
+      .limit(limit)
+      .skip(offset)
+      .sort({ 
+
+        no:1
+        
+      })
+      .select('-__v');
   }
 
   async findOne(term: string) {
@@ -66,12 +80,12 @@ export class MedabotService {
       return { ...medabot.toJSON(), ...updateMedabotDto };
 
     } catch (error) {
-      this.handleExceptions( error );
+      this.handleExceptions(error);
     }
 
   }
 
-  async remove( id: string ) {
+  async remove(id: string) {
 
     // const medabot = await this.findOne(id);
 
@@ -80,7 +94,7 @@ export class MedabotService {
     // const result = await this.medabotModel.findByIdAndDelete( id );
 
     const { deletedCount, acknowledged } = await this.medabotModel.deleteOne({ _id: id });
-    if( deletedCount === 0 ) throw new BadRequestException( `Medabot with id ${id} not found.` )
+    if (deletedCount === 0) throw new BadRequestException(`Medabot with id ${id} not found.`)
 
     return;
 
@@ -95,5 +109,7 @@ export class MedabotService {
     throw new InternalServerErrorException(`Couldn't update Medabot - Check server logs`);
 
   }
+
+
 
 }

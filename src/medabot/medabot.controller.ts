@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, HttpStatus, ParseUUIDPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, HttpStatus, ParseUUIDPipe, Query } from '@nestjs/common';
 import { MedabotService } from './medabot.service';
 import { CreateMedabotDto } from './dto/create-medabot.dto';
 import { UpdateMedabotDto } from './dto/update-medabot.dto';
 import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id/parse-mongo-id.pipe';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 @Controller('medabot')
 export class MedabotController {
@@ -15,8 +16,8 @@ export class MedabotController {
   }
 
   @Get()
-  findAll() {
-    return this.medabotService.findAll();
+  findAll( @Query() paginationDto: PaginationDto ) {
+    return this.medabotService.findAll( paginationDto );
   }
 
   @Get(':term')

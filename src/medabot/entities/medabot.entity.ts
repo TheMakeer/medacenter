@@ -14,8 +14,16 @@ export class Medabot extends Document{
         index: true,
     })
     no:number;
-
+    @Prop()
+    type:string;
+    @Prop()
+    medal:string;
+    @Prop()
+    model:string;
+    @Prop()
+    tinpet:string;
 }
 
 
 export const MedabotSchema = SchemaFactory.createForClass( Medabot );
+
