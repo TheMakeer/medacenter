@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="#" target="blank"><img src="public/assets/f0dc00c78ee7f84de43205dcd80c424e-removebg-preview(1).png" width="200" alt="Metabee" /></a>
+  <img src="public/assets/f0dc00c78ee7f84de43205dcd80c424e-removebg-preview(1).png" width="200" alt="Metabee" />
 </p>
 
 ## Ejecutar en desarrollo
@@ -9,7 +9,7 @@
 ```
 npm install
 ```
-3. Tener Nes CLI instalado
+3. Tener Nest CLI instalado
 ```
 npm i -g @nestjs/cli
 ```
