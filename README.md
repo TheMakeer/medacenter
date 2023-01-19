@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="public/assets/f0dc00c78ee7f84de43205dcd80c424e-removebg-preview(1).png" width="200" alt="Nest Logo" /></a>
+  <a href="#" target="blank"><img src="public/assets/f0dc00c78ee7f84de43205dcd80c424e-removebg-preview(1).png" width="200" alt="Metabee" /></a>
 </p>
 
 ## Ejecutar en desarrollo
@@ -25,10 +25,7 @@ docker-compose up -d
 ```
 npm run start:dev
 ```
-8. Reconstruir la base de datos con la semilla
-```
-http://localhost:3000/api/seed
-```
+
 ## Stack usado
 * MongoDB
 * Nest
