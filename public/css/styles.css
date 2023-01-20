@@ -5,18 +5,16 @@ html {
 }
 
 body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     padding: 0;
     width: 100%;
     height: auto;
-    margin: 0;
+    margin: 0 0 2rem 0;
 }
 
 
-
-p {
-    color: #000000;
-    text-align: center;
-}
 
 .cover-image-one {
     left: 39.7%;
@@ -27,13 +25,13 @@ p {
 }
 
 .img-one-two{
-    bottom: 30%;
+    bottom: 25%;
     position: absolute;
     filter: brightness(0);
 }
 
 .cover-image-three {
-    bottom: 30%;
+    bottom: 25%;
     position: absolute;
 }
 
@@ -42,7 +40,7 @@ p {
     flex-direction: row;
     justify-content: center;
     text-align: center;
-    height: 550px;
+    height: 500px;
     background-color: #f1f1f1;
     width: 100%;
     padding-top: 0;
@@ -53,7 +51,36 @@ p {
     margin-top: 0;
 }
 
+.body-content{
+    width: calc(100%/3 *2);
+    padding: 6rem 0;
+}
+
 .body-content p{
+    text-align: center;
     color: white;
-    padding-top: 4rem;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #0d1117;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.links {
+    width: 100%;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
 }
