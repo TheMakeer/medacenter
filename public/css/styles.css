@@ -19,21 +19,21 @@ p {
 }
 
 .cover-image-one {
-    left: 38.8%;
+    left: 39.7%;
 }
 
 .cover-image-two {
-    right: 38.8%;
+    right: 39.7%;
 }
 
 .img-one-two{
-    bottom: 25%;
+    bottom: 30%;
     position: absolute;
     filter: brightness(0);
 }
 
 .cover-image-three {
-    bottom: 25%;
+    bottom: 30%;
     position: absolute;
 }
 
@@ -55,4 +55,5 @@ p {
 
 .body-content p{
     color: white;
+    padding-top: 4rem;
 }
